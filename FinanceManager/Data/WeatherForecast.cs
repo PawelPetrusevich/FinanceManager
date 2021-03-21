@@ -1,6 +1,6 @@
 using System;
 
-namespace FinanceManager.UI.Data
+namespace FinanceManager.Data
 {
     public class WeatherForecast
     {

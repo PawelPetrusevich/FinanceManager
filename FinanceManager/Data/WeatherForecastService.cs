@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FinanceManager.UI.Data
+namespace FinanceManager.Data
 {
     public class WeatherForecastService
     {
