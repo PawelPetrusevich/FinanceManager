@@ -1,0 +1,9 @@
+C:\Users\User\Documents\FinanceManager\FinanceManager.Identity\bin\Debug\netstandard2.1\FinanceManager.Identity.deps.json
+C:\Users\User\Documents\FinanceManager\FinanceManager.Identity\bin\Debug\netstandard2.1\FinanceManager.Identity.dll
+C:\Users\User\Documents\FinanceManager\FinanceManager.Identity\bin\Debug\netstandard2.1\FinanceManager.Identity.pdb
+C:\Users\User\Documents\FinanceManager\FinanceManager.Identity\obj\Debug\netstandard2.1\FinanceManager.Identity.csprojAssemblyReference.cache
+C:\Users\User\Documents\FinanceManager\FinanceManager.Identity\obj\Debug\netstandard2.1\FinanceManager.Identity.AssemblyInfoInputs.cache
+C:\Users\User\Documents\FinanceManager\FinanceManager.Identity\obj\Debug\netstandard2.1\FinanceManager.Identity.AssemblyInfo.cs
+C:\Users\User\Documents\FinanceManager\FinanceManager.Identity\obj\Debug\netstandard2.1\FinanceManager.Identity.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\FinanceManager\FinanceManager.Identity\obj\Debug\netstandard2.1\FinanceManager.Identity.dll
+C:\Users\User\Documents\FinanceManager\FinanceManager.Identity\obj\Debug\netstandard2.1\FinanceManager.Identity.pdb

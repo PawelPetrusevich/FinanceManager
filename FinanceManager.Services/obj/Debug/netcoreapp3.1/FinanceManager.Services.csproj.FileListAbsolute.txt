@@ -1,0 +1,9 @@
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\bin\Debug\netcoreapp3.1\FinanceManager.Services.deps.json
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\bin\Debug\netcoreapp3.1\FinanceManager.Services.dll
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\bin\Debug\netcoreapp3.1\FinanceManager.Services.pdb
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcoreapp3.1\FinanceManager.Services.csprojAssemblyReference.cache
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcoreapp3.1\FinanceManager.Services.AssemblyInfoInputs.cache
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcoreapp3.1\FinanceManager.Services.AssemblyInfo.cs
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcoreapp3.1\FinanceManager.Services.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcoreapp3.1\FinanceManager.Services.dll
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcoreapp3.1\FinanceManager.Services.pdb

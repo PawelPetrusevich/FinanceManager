@@ -34,12 +34,18 @@ namespace FinanceManager
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddRazorPages();
+
             services.AddServerSideBlazor();
+
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+
             services.AddDatabaseDeveloperPageExceptionFilter();
+
             services.AddSingleton<WeatherForecastService>();
         }
 
@@ -64,6 +70,7 @@ namespace FinanceManager
             app.UseRouting();
 
             app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

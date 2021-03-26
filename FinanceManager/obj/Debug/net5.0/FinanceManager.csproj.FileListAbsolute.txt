@@ -102,3 +102,6 @@ C:\Users\User\Documents\FinanceManager\FinanceManager\obj\Debug\net5.0\FinanceMa
 C:\Users\User\Documents\FinanceManager\FinanceManager\obj\Debug\net5.0\ref\FinanceManager.dll
 C:\Users\User\Documents\FinanceManager\FinanceManager\obj\Debug\net5.0\FinanceManager.pdb
 C:\Users\User\Documents\FinanceManager\FinanceManager\obj\Debug\net5.0\FinanceManager.genruntimeconfig.cache
+C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\libman.json
+C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\FinanceManager.Identity.dll
+C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\FinanceManager.Identity.pdb
