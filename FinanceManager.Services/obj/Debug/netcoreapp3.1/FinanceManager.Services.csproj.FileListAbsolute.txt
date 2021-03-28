@@ -7,3 +7,6 @@ C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcore
 C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcoreapp3.1\FinanceManager.Services.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcoreapp3.1\FinanceManager.Services.dll
 C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcoreapp3.1\FinanceManager.Services.pdb
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\bin\Debug\netcoreapp3.1\FinanceManager.Common.dll
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\bin\Debug\netcoreapp3.1\FinanceManager.Common.pdb
+C:\Users\User\Documents\FinanceManager\FinanceManager.Services\obj\Debug\netcoreapp3.1\FinanceManager.Services.csproj.CopyComplete

@@ -25,7 +25,10 @@
     ".NETCoreApp,Version=v5.0": {
       "FinanceManager/1.0.0": {
         "dependencies": {
+          "FinanceManager.Common": "1.0.0",
+          "FinanceManager.Data": "1.0.0",
           "FinanceManager.Identity": "1.0.0",
+          "FinanceManager.Services": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "5.0.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.4",
           "Microsoft.AspNetCore.Identity.UI": "5.0.4",
@@ -1436,6 +1439,28 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "FinanceManager.Common/1.0.0": {
+        "runtime": {
+          "FinanceManager.Common.dll": {}
+        },
+        "compile": {
+          "FinanceManager.Common.dll": {}
+        }
+      },
+      "FinanceManager.Data/1.0.0": {
+        "dependencies": {
+          "FinanceManager.Common": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.4",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.4"
+        },
+        "runtime": {
+          "FinanceManager.Data.dll": {}
+        },
+        "compile": {
+          "FinanceManager.Data.dll": {}
+        }
+      },
       "FinanceManager.Identity/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.4",
@@ -1447,6 +1472,17 @@
         },
         "compile": {
           "FinanceManager.Identity.dll": {}
+        }
+      },
+      "FinanceManager.Services/1.0.0": {
+        "dependencies": {
+          "FinanceManager.Common": "1.0.0"
+        },
+        "runtime": {
+          "FinanceManager.Services.dll": {}
+        },
+        "compile": {
+          "FinanceManager.Services.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -3855,7 +3891,22 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
+    "FinanceManager.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FinanceManager.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "FinanceManager.Identity/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FinanceManager.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

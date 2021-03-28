@@ -105,3 +105,9 @@ C:\Users\User\Documents\FinanceManager\FinanceManager\obj\Debug\net5.0\FinanceMa
 C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\libman.json
 C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\FinanceManager.Identity.dll
 C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\FinanceManager.Identity.pdb
+C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\FinanceManager.Common.dll
+C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\FinanceManager.Services.dll
+C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\FinanceManager.Common.pdb
+C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\FinanceManager.Services.pdb
+C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\FinanceManager.Data.dll
+C:\Users\User\Documents\FinanceManager\FinanceManager\bin\Debug\net5.0\FinanceManager.Data.pdb

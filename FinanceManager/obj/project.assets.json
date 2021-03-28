@@ -1653,6 +1653,32 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "FinanceManager.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/FinanceManager.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinanceManager.Common.dll": {}
+        }
+      },
+      "FinanceManager.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "FinanceManager.Common": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.4",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.4"
+        },
+        "compile": {
+          "bin/placeholder/FinanceManager.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinanceManager.Data.dll": {}
+        }
+      },
       "FinanceManager.Identity/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -1666,6 +1692,19 @@
         },
         "runtime": {
           "bin/placeholder/FinanceManager.Identity.dll": {}
+        }
+      },
+      "FinanceManager.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "FinanceManager.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FinanceManager.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinanceManager.Services.dll": {}
         }
       }
     }
@@ -6145,15 +6184,33 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "FinanceManager.Common/1.0.0": {
+      "type": "project",
+      "path": "../FinanceManager.Common/FinanceManager.Common.csproj",
+      "msbuildProject": "../FinanceManager.Common/FinanceManager.Common.csproj"
+    },
+    "FinanceManager.Data/1.0.0": {
+      "type": "project",
+      "path": "../FinanceManager.Data/FinanceManager.Data.csproj",
+      "msbuildProject": "../FinanceManager.Data/FinanceManager.Data.csproj"
+    },
     "FinanceManager.Identity/1.0.0": {
       "type": "project",
       "path": "../FinanceManager.Identity/FinanceManager.Identity.csproj",
       "msbuildProject": "../FinanceManager.Identity/FinanceManager.Identity.csproj"
+    },
+    "FinanceManager.Services/1.0.0": {
+      "type": "project",
+      "path": "../FinanceManager.Services/FinanceManager.Services.csproj",
+      "msbuildProject": "../FinanceManager.Services/FinanceManager.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "FinanceManager.Common >= 1.0.0",
+      "FinanceManager.Data >= 1.0.0",
       "FinanceManager.Identity >= 1.0.0",
+      "FinanceManager.Services >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 5.0.4",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.4",
       "Microsoft.AspNetCore.Identity.UI >= 5.0.4",
@@ -6188,8 +6245,17 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\User\\Documents\\FinanceManager\\FinanceManager.Common\\FinanceManager.Common.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\FinanceManager\\FinanceManager.Common\\FinanceManager.Common.csproj"
+            },
+            "C:\\Users\\User\\Documents\\FinanceManager\\FinanceManager.Data\\FinanceManager.Data.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\FinanceManager\\FinanceManager.Data\\FinanceManager.Data.csproj"
+            },
             "C:\\Users\\User\\Documents\\FinanceManager\\FinanceManager.Identity\\FinanceManager.Identity.csproj": {
               "projectPath": "C:\\Users\\User\\Documents\\FinanceManager\\FinanceManager.Identity\\FinanceManager.Identity.csproj"
+            },
+            "C:\\Users\\User\\Documents\\FinanceManager\\FinanceManager.Services\\FinanceManager.Services.csproj": {
+              "projectPath": "C:\\Users\\User\\Documents\\FinanceManager\\FinanceManager.Services\\FinanceManager.Services.csproj"
             }
           }
         }

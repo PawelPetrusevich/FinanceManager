@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "FinanceManager.Data/1.0.0": {
+        "dependencies": {
+          "FinanceManager.Common": "1.0.0"
+        },
         "runtime": {
           "FinanceManager.Data.dll": {}
+        }
+      },
+      "FinanceManager.Common/1.0.0": {
+        "runtime": {
+          "FinanceManager.Common.dll": {}
         }
       }
     }
   },
   "libraries": {
     "FinanceManager.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FinanceManager.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
