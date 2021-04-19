@@ -79,6 +79,20 @@ using FinanceManager.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\User\Documents\FinanceManager\FinanceManager\_Imports.razor"
+using FinanceManager.Application.Common.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\User\Documents\FinanceManager\FinanceManager\_Imports.razor"
+using FinanceManager.Application.Common.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
     public partial class MainLayout : LayoutComponentBase
     {
         #pragma warning disable 1998

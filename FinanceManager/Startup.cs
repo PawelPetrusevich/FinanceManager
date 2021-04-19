@@ -15,43 +15,52 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FinanceManager.Application;
+using FinanceManager.Application.Common.Interfaces;
+using FinanceManager.Application.Common.Services;
 using FinanceManager.Data.Context;
+using FinanceManager.Identity.Models;
+using FinanceManager.Persistence;
+using FinanceManager.Services;
 
 namespace FinanceManager
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment;
         }
 
         public IConfiguration Configuration { get; }
+
+        public IWebHostEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<FinanceManagerContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DomainConnection")));
+            services.AddPersistence(Configuration);
+            services.AddApplication();
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
+
+            services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("IdentityConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<IdentityDbContext>();
 
             services.AddRazorPages();
 
             services.AddServerSideBlazor();
 
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+            services.AddScoped<ICurrencyService, CurrencyService>();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
-
-            services.AddSingleton<WeatherForecastService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

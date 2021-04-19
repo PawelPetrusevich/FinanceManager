@@ -1,5 +1,9 @@
 @import '';
 
+/* _content/FinanceManager/Pages/Accounts.razor.rz.scp.css */
+.input-container[b-glih1251ii] {
+    width: auto;
+}
 /* _content/FinanceManager/Shared/MainLayout.razor.rz.scp.css */
 .page[b-4bi63bogfc] {
     position: relative;

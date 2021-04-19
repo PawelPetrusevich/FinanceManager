@@ -82,6 +82,20 @@ using FinanceManager.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\User\Documents\FinanceManager\FinanceManager\_Imports.razor"
+using FinanceManager.Application.Common.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\User\Documents\FinanceManager\FinanceManager\_Imports.razor"
+using FinanceManager.Application.Common.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -90,7 +104,7 @@ using FinanceManager.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\User\Documents\FinanceManager\FinanceManager\Shared\NavMenu.razor"
+#line 33 "C:\Users\User\Documents\FinanceManager\FinanceManager\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
