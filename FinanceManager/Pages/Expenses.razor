@@ -3,6 +3,20 @@
 <h3>Expenses</h3>
 
 <div class="container">
+    
+    <div class="row">
+        <h3>Add new expense.</h3>
+        <EditForm Model="CreateExpenseCommand" class="row">
+            <div class="input-container">
+                <InputDate @bind-Value="CreateExpenseCommand.Date" class="form-control"></InputDate>
+            </div>
+            
+            <div class="input-container">
+                <InputNumber @bind-Value="CreateExpenseCommand.Value"></InputNumber>
+            </div>
+        </EditForm>
+    </div>
+
     <div class="row">
         <h3>Expense transactions list</h3>
         <table class="table table-bordered table-striped">
@@ -10,14 +24,24 @@
             <tr>
                 <th>Date</th>
                 <th>Value</th>
+                <th>Currency</th>
                 <th>Category</th>
                 <th>SubCategory</th>
-                <th>Currency</th>
                 <th>Description</th>
             </tr>
             </thead>
             <tbody>
-
+            @foreach (var transaction in Transactions)
+            {
+                <tr>
+                    <th>@transaction.Date</th>
+                    <th>@transaction.Value</th>
+                    <th>@transaction.Currency</th>
+                    <th>@transaction.Category</th>
+                    <th>@transaction.SubCategory</th>
+                    <th>@transaction.Description</th>
+                </tr>
+            }
             </tbody>
         </table>
     </div>

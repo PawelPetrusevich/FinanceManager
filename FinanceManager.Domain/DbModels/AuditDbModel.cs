@@ -9,6 +9,5 @@ namespace FinanceManager.Common.DbModels
         public DateTime CreatedDate { get; set; }
 
         public DateTime LastUpdatedDate { get; set; }
-        
     }
 }

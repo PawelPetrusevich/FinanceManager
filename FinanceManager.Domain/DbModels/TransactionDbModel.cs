@@ -22,5 +22,9 @@ namespace FinanceManager.Common.DbModels
         public Guid AccountId { get; set; }
 
         public virtual AccountDbModel Account { get; set; }
+
+        public Guid? UserId { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }

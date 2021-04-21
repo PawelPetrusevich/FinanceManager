@@ -4,14 +4,16 @@ using FinanceManager.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinanceManager.Persistence.Migrations
 {
     [DbContext(typeof(FinanceManagerContext))]
-    partial class FinanceManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20210419131345_add-user-id-to-transaction-model")]
+    partial class adduseridtotransactionmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

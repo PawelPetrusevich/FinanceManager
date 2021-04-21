@@ -19,6 +19,8 @@ namespace FinanceManager.Application.Common.Models
 
         public DateTime? Date { get; set; }
 
+        public Guid? UserId { get; set; }
+
         public void Mapping(Profile profile)
         {
             profile.CreateMap<TransactionDbModel, TransactionVM>()
