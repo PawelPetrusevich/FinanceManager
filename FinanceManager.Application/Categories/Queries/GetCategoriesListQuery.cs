@@ -17,7 +17,7 @@ namespace FinanceManager.Application.Categories.Queries
         {
             private readonly IFinanceManagerContext _financeManagerContext;
 
-            public GetCategoryQueryHandler(IFinanceManagerContext financeManagerContext)
+            public GetCategoriesListQueryHandler(IFinanceManagerContext financeManagerContext)
             {
                 _financeManagerContext = financeManagerContext;
             }

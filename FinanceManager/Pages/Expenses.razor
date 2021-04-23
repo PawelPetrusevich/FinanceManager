@@ -26,8 +26,12 @@
             </div>
             
             <div class="input-container">
+                <option value="">--- SELECT ACCOUNT ---</option>
                 <InputSelect @bind-Value="CreateExpenseCommand.CategoryId" class="form-select">
-                    
+                    @foreach(var category in CategoryList)
+                    {
+                        <option value="@category.Key"></option>
+                    }
                 </InputSelect>
             </div>
         </EditForm>
