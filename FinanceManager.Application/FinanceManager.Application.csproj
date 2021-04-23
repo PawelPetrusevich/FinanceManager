@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Accounts\Queries\" />
+    <Folder Include="Categories\Commands\" />
     <Folder Include="Common\Constants\" />
     <Folder Include="Common\Services\" />
     <Folder Include="Transactions\Queries\" />

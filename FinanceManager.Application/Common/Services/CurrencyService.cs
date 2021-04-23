@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using FinanceManager.Application.Common.Enums;
 using FinanceManager.Application.Common.Interfaces;
 using FinanceManager.Application.Common.Models;
 
@@ -6,28 +9,14 @@ namespace FinanceManager.Application.Common.Services
 {
     public class CurrencyService : ICurrencyService
     {
-        private readonly List<CurrencyVM> currencyList = new()
+        public List<string> GetAllCurrency()
         {
-            new CurrencyVM
-            {
-                ShortName = "EUR",
-                LongName = "EURO"
-            },
-            new CurrencyVM
-            {
-                ShortName = "USD",
-                LongName = "USD"
-            },
-            new CurrencyVM
-            {
-                ShortName = "BYN",
-                LongName = "BYN"
-            }
-        };
+            var result = Enum.GetValues(typeof(Currency))
+                .Cast<Currency>()
+                .Select(x => x.ToString())
+                .ToList();
 
-        public List<CurrencyVM> GetAllCurrency()
-        {
-            return currencyList;
+            return result;
         }
     }
 }

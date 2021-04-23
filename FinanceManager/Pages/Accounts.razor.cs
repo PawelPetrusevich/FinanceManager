@@ -25,7 +25,7 @@ namespace FinanceManager.Pages
 
         [Inject] public ICurrentUserService _currentUserService { get; set; }
 
-        private IEnumerable<CurrencyVM> CurrencyList { get; set; }
+        private IEnumerable<string> CurrencyList { get; set; }
 
         public IEnumerable<AccountVM> AccountList { get; set; } = new List<AccountVM>();
 

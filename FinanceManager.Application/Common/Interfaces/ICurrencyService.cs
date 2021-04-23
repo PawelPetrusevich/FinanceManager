@@ -5,6 +5,6 @@ namespace FinanceManager.Application.Common.Interfaces
 {
     public interface ICurrencyService
     {
-        List<CurrencyVM> GetAllCurrency();
+        List<string> GetAllCurrency();
     }
 }
