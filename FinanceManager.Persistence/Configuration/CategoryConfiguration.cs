@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using FinanceManager.Common.DbModels;
-using FinanceManager.Common.Enums;
+using FinanceManager.Application.Common.Enums;
+using FinanceManager.Domain.DbModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FinanceManager.Data.Configuration
+namespace FinanceManager.Persistence.Configuration
 {
     public class CategoryConfiguration : IEntityTypeConfiguration<TransactionCategoryDbModel>
     {
@@ -30,7 +30,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Автомобиль",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Cunsumption
+                    TransactionType = TransactionType.Cunsumption.ToString()
                 },
                 new()
                 {
@@ -38,7 +38,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Регулярные платежи",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Cunsumption
+                    TransactionType = TransactionType.Cunsumption.ToString()
                 },
                 new()
                 {
@@ -46,7 +46,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Развлечения",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Cunsumption
+                    TransactionType = TransactionType.Cunsumption.ToString()
                 },
                 new()
                 {
@@ -54,7 +54,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Медицина",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Cunsumption
+                    TransactionType = TransactionType.Cunsumption.ToString()
                 },
                 new()
                 {
@@ -62,7 +62,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Продукты питания",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Cunsumption
+                    TransactionType = TransactionType.Cunsumption.ToString()
                 },
                 new()
                 {
@@ -70,7 +70,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Общественный транспорт",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Cunsumption
+                    TransactionType = TransactionType.Cunsumption.ToString()
                 },
                 new()
                 {
@@ -78,7 +78,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Непродуктовые покупки",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Cunsumption
+                    TransactionType = TransactionType.Cunsumption.ToString()
                 },
                 new()
                 {
@@ -86,7 +86,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Услуги",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Cunsumption
+                    TransactionType = TransactionType.Cunsumption.ToString()
                 },
                 new()
                 {
@@ -94,7 +94,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Кредиты",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Cunsumption
+                    TransactionType = TransactionType.Cunsumption.ToString()
                 },
                 new()
                 {
@@ -102,7 +102,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Прочие расходы",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Cunsumption
+                    TransactionType = TransactionType.Cunsumption.ToString()
                 },
                 new()
                 {
@@ -110,7 +110,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Зарплата",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Income
+                    TransactionType = TransactionType.Income.ToString()
                 },
                 new()
                 {
@@ -118,7 +118,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Доход от аренды",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Income
+                    TransactionType = TransactionType.Income.ToString()
                 },
                 new()
                 {
@@ -126,7 +126,7 @@ namespace FinanceManager.Data.Configuration
                     Name = "Прочие даходы",
                     CreatedDate = DateTime.Now,
                     LastUpdatedDate = DateTime.Now,
-                    TransactionType = TransactionType.Income
+                    TransactionType = TransactionType.Income.ToString()
                 }
             };
 

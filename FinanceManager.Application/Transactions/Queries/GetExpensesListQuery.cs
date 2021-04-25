@@ -5,9 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using FinanceManager.Application.Common.Enums;
 using FinanceManager.Application.Common.Interfaces;
 using FinanceManager.Application.Common.Models;
-using FinanceManager.Common.Enums;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,7 +36,7 @@ namespace FinanceManager.Application.Transactions.Queries
                     .Include(x => x.SubCategory)
                     .Include(x => x.Account)
                     .Where(x => x.UserId == request.UserId)
-                    .Where(x=>x.TransactionType == TransactionType.Cunsumption)
+                    .Where(x=>x.TransactionType == TransactionType.Cunsumption.ToString())
                     .ProjectTo<TransactionVM>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 

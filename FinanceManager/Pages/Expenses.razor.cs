@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FinanceManager.Application.Accounts.Queries;
 using FinanceManager.Application.Categories.Queries;
+using FinanceManager.Application.Common.Enums;
 using FinanceManager.Application.Common.Interfaces;
 using FinanceManager.Application.Common.Models;
 using FinanceManager.Application.Transactions.Commands;
@@ -47,9 +48,29 @@ namespace FinanceManager.Pages
                 UserId = Guid.Parse(_currentUserService.User.Id)
             });
 
-            CategoryList = await _mediator.Send(new GetCategoriesListQuery());
+            CategoryList = await _mediator.Send(new GetCategoriesListQuery
+            {
+                TransactionType = TransactionType.Cunsumption
+            });
 
             await base.OnInitializedAsync();
+        }
+
+        protected async Task ChangeCategoryEvent(ChangeEventArgs eventArgs)
+        {
+            var categoryId = eventArgs.Value?.ToString();
+
+            if (!string.IsNullOrWhiteSpace(categoryId))
+            {
+                SubCategoryList = await _mediator.Send(new GetSubCategoriesListQuery
+                {
+                    CategoryId = Guid.Parse(categoryId)
+                });
+            }
+
+            CreateExpenseCommand.SubCategoryId = "";
+
+            StateHasChanged();
         }
     }
 }

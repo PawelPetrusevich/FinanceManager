@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FinanceManager.Application.Common.Interfaces;
-using FinanceManager.Common.DbModels;
+using FinanceManager.Domain.DbModels;
 using MediatR;
 
 namespace FinanceManager.Application.Accounts.Commands

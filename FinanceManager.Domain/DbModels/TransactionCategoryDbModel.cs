@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using FinanceManager.Common.Enums;
+﻿using System.Collections.Generic;
 
-namespace FinanceManager.Common.DbModels
+namespace FinanceManager.Domain.DbModels
 {
     public class TransactionCategoryDbModel : AuditDbModel
     {
         public string Name { get; set; }
 
-        public TransactionType TransactionType { get; set; }
+        public string TransactionType { get; set; }
 
         public ICollection<TransactionSubCategoryDbModel> SubCategories { get; set; }
 

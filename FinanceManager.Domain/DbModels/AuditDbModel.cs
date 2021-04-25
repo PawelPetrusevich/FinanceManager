@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FinanceManager.Common.DbModels
+namespace FinanceManager.Domain.DbModels
 {
     public class AuditDbModel
     {

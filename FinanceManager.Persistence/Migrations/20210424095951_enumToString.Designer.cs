@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinanceManager.Persistence.Migrations
 {
     [DbContext(typeof(FinanceManagerContext))]
-    [Migration("20210401144342_DomainInit")]
-    partial class DomainInit
+    [Migration("20210424095951_enumToString")]
+    partial class enumToString
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace FinanceManager.Persistence.Migrations
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.AccountDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.AccountDbModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,7 +55,7 @@ namespace FinanceManager.Persistence.Migrations
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.BudgetDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.BudgetDbModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -75,7 +75,7 @@ namespace FinanceManager.Persistence.Migrations
                     b.ToTable("Budgets");
                 });
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.TransactionCategoryDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.TransactionCategoryDbModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,8 +90,8 @@ namespace FinanceManager.Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TransactionType")
-                        .HasColumnType("int");
+                    b.Property<string>("TransactionType")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -101,110 +101,110 @@ namespace FinanceManager.Persistence.Migrations
                         new
                         {
                             Id = new Guid("06bfcef7-ae70-4040-beb9-8ab96620030b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 538, DateTimeKind.Local).AddTicks(370),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 538, DateTimeKind.Local).AddTicks(9665),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 173, DateTimeKind.Local).AddTicks(4173),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3214),
                             Name = "Автомобиль",
-                            TransactionType = 0
+                            TransactionType = "Cunsumption"
                         },
                         new
                         {
                             Id = new Guid("6169f354-c9f8-48ac-bf4e-eca2f2b2922b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(205),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(210),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3951),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3955),
                             Name = "Регулярные платежи",
-                            TransactionType = 0
+                            TransactionType = "Cunsumption"
                         },
                         new
                         {
                             Id = new Guid("1c09b880-cc78-4a32-9c64-85010fcabf66"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(214),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(215),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3963),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3964),
                             Name = "Развлечения",
-                            TransactionType = 0
+                            TransactionType = "Cunsumption"
                         },
                         new
                         {
                             Id = new Guid("fbde9320-81f0-495f-a9ba-35ed8e4922ce"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(218),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(219),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3968),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3969),
                             Name = "Медицина",
-                            TransactionType = 0
+                            TransactionType = "Cunsumption"
                         },
                         new
                         {
                             Id = new Guid("c1ce6959-3af6-410a-8427-9a173654da0d"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(222),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(223),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3972),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3973),
                             Name = "Продукты питания",
-                            TransactionType = 0
+                            TransactionType = "Cunsumption"
                         },
                         new
                         {
                             Id = new Guid("bcbdc4d2-3667-4b57-b2db-86bb5777d806"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(229),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(230),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3980),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3981),
                             Name = "Общественный транспорт",
-                            TransactionType = 0
+                            TransactionType = "Cunsumption"
                         },
                         new
                         {
                             Id = new Guid("975b99ae-3b02-4fd1-9008-f9327b0e0538"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(233),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(234),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3984),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3985),
                             Name = "Непродуктовые покупки",
-                            TransactionType = 0
+                            TransactionType = "Cunsumption"
                         },
                         new
                         {
                             Id = new Guid("55f65fdb-59eb-4033-b4aa-9f7704b709f2"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(237),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(238),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3988),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3989),
                             Name = "Услуги",
-                            TransactionType = 0
+                            TransactionType = "Cunsumption"
                         },
                         new
                         {
                             Id = new Guid("9525e3cc-c1db-404b-960b-717c09297602"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(241),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(242),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3992),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3993),
                             Name = "Кредиты",
-                            TransactionType = 0
+                            TransactionType = "Cunsumption"
                         },
                         new
                         {
                             Id = new Guid("c468f57a-9771-4427-97ea-d174827803c7"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(245),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(246),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3998),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(3999),
                             Name = "Прочие расходы",
-                            TransactionType = 0
+                            TransactionType = "Cunsumption"
                         },
                         new
                         {
                             Id = new Guid("181336f7-1482-4c9f-9bff-f1cd186bf097"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(249),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(250),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(4002),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(4003),
                             Name = "Зарплата",
-                            TransactionType = 1
+                            TransactionType = "Income"
                         },
                         new
                         {
                             Id = new Guid("25d1f35e-fa4c-4026-8d5f-01f85491cd59"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(253),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(254),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(4006),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(4007),
                             Name = "Доход от аренды",
-                            TransactionType = 1
+                            TransactionType = "Income"
                         },
                         new
                         {
                             Id = new Guid("20e41593-9451-4277-84ab-d10e8f9af04e"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(257),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 539, DateTimeKind.Local).AddTicks(258),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(4011),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 174, DateTimeKind.Local).AddTicks(4012),
                             Name = "Прочие даходы",
-                            TransactionType = 1
+                            TransactionType = "Income"
                         });
                 });
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.TransactionDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.TransactionDbModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -219,6 +219,9 @@ namespace FinanceManager.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -228,8 +231,11 @@ namespace FinanceManager.Persistence.Migrations
                     b.Property<Guid>("SubCategoryId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("TransactionType")
+                    b.Property<int?>("TransactionType")
                         .HasColumnType("int");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Value")
                         .HasColumnType("decimal(10,2)");
@@ -245,7 +251,7 @@ namespace FinanceManager.Persistence.Migrations
                     b.ToTable("Transactions");
                 });
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.TransactionSubCategoryDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.TransactionSubCategoryDbModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -272,297 +278,297 @@ namespace FinanceManager.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c042f085-0144-4eed-8897-90cce7e452b8"),
+                            Id = new Guid("ad9beb04-c59c-47bb-96de-d3489a38cd6e"),
                             CategoryId = new Guid("06bfcef7-ae70-4040-beb9-8ab96620030b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3915),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3925),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8032),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8039),
                             Name = "Топливо"
                         },
                         new
                         {
-                            Id = new Guid("5570b7c1-025a-41d2-af45-8f05d74c9937"),
+                            Id = new Guid("24c0ea2f-9951-4500-884c-ecdc36c8c58e"),
                             CategoryId = new Guid("06bfcef7-ae70-4040-beb9-8ab96620030b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3947),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3948),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8061),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8062),
                             Name = "Мойка"
                         },
                         new
                         {
-                            Id = new Guid("3cb89582-c39b-408c-92c0-be1777ce6d00"),
+                            Id = new Guid("6fe8dae3-e9bf-4525-82c5-fb4626b5e537"),
                             CategoryId = new Guid("06bfcef7-ae70-4040-beb9-8ab96620030b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3952),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3953),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8066),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8067),
                             Name = "Ремонт"
                         },
                         new
                         {
-                            Id = new Guid("d75b8dc4-49c0-4044-af37-ff39e0f1a873"),
+                            Id = new Guid("a0d1a95a-1ea2-4147-9384-e79f74eef48b"),
                             CategoryId = new Guid("06bfcef7-ae70-4040-beb9-8ab96620030b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3973),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3974),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8070),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8071),
                             Name = "Обслуживание"
                         },
                         new
                         {
-                            Id = new Guid("329d71de-cb1a-4891-8171-054facfad305"),
+                            Id = new Guid("e105dff4-0690-4c8f-ad5b-d2f5edfb2e9a"),
                             CategoryId = new Guid("06bfcef7-ae70-4040-beb9-8ab96620030b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3978),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3979),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8074),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8075),
                             Name = "Страховка"
                         },
                         new
                         {
-                            Id = new Guid("2762fb88-5750-4dc6-afea-4e4933d188e4"),
+                            Id = new Guid("14740629-55c0-47c6-b9ef-8ac7090b3810"),
                             CategoryId = new Guid("06bfcef7-ae70-4040-beb9-8ab96620030b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3985),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3986),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8081),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8082),
                             Name = "Стоянка"
                         },
                         new
                         {
-                            Id = new Guid("5ddfed7c-9fe8-44cb-a6f5-d8a040095fe6"),
+                            Id = new Guid("04e6e177-ba23-4704-b9e9-fdb08a01755b"),
                             CategoryId = new Guid("06bfcef7-ae70-4040-beb9-8ab96620030b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3989),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3990),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8086),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8087),
                             Name = "Штраф"
                         },
                         new
                         {
-                            Id = new Guid("147486db-2158-4bee-99da-c78be4a7fd3d"),
+                            Id = new Guid("8043d2e9-9af5-4697-bbc9-b6715d6d3b19"),
                             CategoryId = new Guid("6169f354-c9f8-48ac-bf4e-eca2f2b2922b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3993),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3994),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8090),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8091),
                             Name = "Телефон"
                         },
                         new
                         {
-                            Id = new Guid("33d2262c-ba49-454d-8998-108a59f6f7b7"),
+                            Id = new Guid("861d1410-2ebf-45f8-a316-931559f695c3"),
                             CategoryId = new Guid("6169f354-c9f8-48ac-bf4e-eca2f2b2922b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3997),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(3998),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8098),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8099),
                             Name = "Интернет"
                         },
                         new
                         {
-                            Id = new Guid("102b9b4a-484c-46d9-aa56-588f98beaf34"),
+                            Id = new Guid("b2f22745-2331-464e-902c-d90b8b4629b1"),
                             CategoryId = new Guid("6169f354-c9f8-48ac-bf4e-eca2f2b2922b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4002),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4003),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8104),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8105),
                             Name = "Коммунальные услуги"
                         },
                         new
                         {
-                            Id = new Guid("3cae7563-c709-46f4-874e-0256cdf4c048"),
+                            Id = new Guid("a056adab-b99b-4107-a3c9-bc3374dec0f5"),
                             CategoryId = new Guid("6169f354-c9f8-48ac-bf4e-eca2f2b2922b"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4007),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4008),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8108),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8109),
                             Name = "Электроенергия"
                         },
                         new
                         {
-                            Id = new Guid("736ff34c-b5ba-450c-8045-e5613c2c44a3"),
+                            Id = new Guid("2765d026-6348-4070-a366-d2ce0b1892bd"),
                             CategoryId = new Guid("1c09b880-cc78-4a32-9c64-85010fcabf66"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4014),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4015),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8112),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8113),
                             Name = "Ресторан"
                         },
                         new
                         {
-                            Id = new Guid("1731eaea-e46c-4bcb-aee7-1331117b6719"),
+                            Id = new Guid("fbc75496-fab5-4180-9a70-07186bc239ce"),
                             CategoryId = new Guid("1c09b880-cc78-4a32-9c64-85010fcabf66"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4018),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4019),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8116),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8117),
                             Name = "Кинатеатр"
                         },
                         new
                         {
-                            Id = new Guid("bebfebdb-d305-4352-a0d2-2aecb7cdd7a8"),
+                            Id = new Guid("e89c12be-9140-4ec9-9184-15e6e111d135"),
                             CategoryId = new Guid("1c09b880-cc78-4a32-9c64-85010fcabf66"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4022),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4023),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8121),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8122),
                             Name = "Аттракцион"
                         },
                         new
                         {
-                            Id = new Guid("751c0e0d-1e88-403e-a5cb-66d119514407"),
+                            Id = new Guid("61abcac3-d132-438f-a7e0-5dc934bfd4c1"),
                             CategoryId = new Guid("fbde9320-81f0-495f-a9ba-35ed8e4922ce"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4026),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4027),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8125),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8126),
                             Name = "Лекарство"
                         },
                         new
                         {
-                            Id = new Guid("649a30d9-c548-46cf-9fff-30ee8dfb3e8a"),
+                            Id = new Guid("d572a123-e0a9-4a3f-bb59-fa6ef86634f6"),
                             CategoryId = new Guid("fbde9320-81f0-495f-a9ba-35ed8e4922ce"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4030),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4031),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8129),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8130),
                             Name = "Услуги медцентров"
                         },
                         new
                         {
-                            Id = new Guid("7d23b5c1-cf60-4326-9a3b-d6f0a6ee0064"),
+                            Id = new Guid("440fb9c4-98ce-47a8-b22e-15a9e95c6260"),
                             CategoryId = new Guid("c1ce6959-3af6-410a-8427-9a173654da0d"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4035),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4036),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8136),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8137),
                             Name = "Продукты"
                         },
                         new
                         {
-                            Id = new Guid("471fe170-2494-4627-b4bd-1cac0133f03f"),
+                            Id = new Guid("73e8bb5d-945a-451c-b86e-18f40edd1592"),
                             CategoryId = new Guid("c1ce6959-3af6-410a-8427-9a173654da0d"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4040),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4041),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8141),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8142),
                             Name = "Алкоголь"
                         },
                         new
                         {
-                            Id = new Guid("15d9a392-4b70-4461-9319-7b598b00573e"),
+                            Id = new Guid("bbed3b29-70d4-4edc-a1b1-9342e5116ba9"),
                             CategoryId = new Guid("c1ce6959-3af6-410a-8427-9a173654da0d"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4044),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4045),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8145),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8146),
                             Name = "Сладости"
                         },
                         new
                         {
-                            Id = new Guid("f62459bd-04eb-4ad4-a709-fd70847c77fe"),
+                            Id = new Guid("aec69ec6-befb-468a-b04a-9e54e25682f6"),
                             CategoryId = new Guid("bcbdc4d2-3667-4b57-b2db-86bb5777d806"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4050),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4051),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8150),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8151),
                             Name = "Общественный транспорт"
                         },
                         new
                         {
-                            Id = new Guid("ba12c310-6f45-47ed-a02e-b9c3d8aefffd"),
+                            Id = new Guid("74f2693f-4eb9-4fa1-984a-55755d89f2ca"),
                             CategoryId = new Guid("bcbdc4d2-3667-4b57-b2db-86bb5777d806"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4054),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4055),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8154),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8155),
                             Name = "Такси"
                         },
                         new
                         {
-                            Id = new Guid("f34fc0fc-56f4-4f5c-bc9c-40a847d0f700"),
+                            Id = new Guid("fb93ff2c-e66d-4503-a6b7-b0b754f446c9"),
                             CategoryId = new Guid("975b99ae-3b02-4fd1-9008-f9327b0e0538"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4059),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4060),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8158),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8159),
                             Name = "Химия"
                         },
                         new
                         {
-                            Id = new Guid("a0f2927b-c0c2-4040-8615-c95a204637d5"),
+                            Id = new Guid("37b43c2c-6a49-4002-8e7e-a6a2e7d7b9a6"),
                             CategoryId = new Guid("975b99ae-3b02-4fd1-9008-f9327b0e0538"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4063),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4064),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8162),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8163),
                             Name = "Косметика"
                         },
                         new
                         {
-                            Id = new Guid("74790522-d12e-4557-929f-e68edb507ffa"),
+                            Id = new Guid("e47d5a0a-9211-422c-be9a-4333f7264a52"),
                             CategoryId = new Guid("975b99ae-3b02-4fd1-9008-f9327b0e0538"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4067),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4068),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8166),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8167),
                             Name = "Алик"
                         },
                         new
                         {
-                            Id = new Guid("de94bd9f-0a37-47d4-a74c-fab623371e07"),
+                            Id = new Guid("d30fff7b-7e81-48d0-ad38-b40db9e8a26f"),
                             CategoryId = new Guid("975b99ae-3b02-4fd1-9008-f9327b0e0538"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4071),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4072),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8172),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8173),
                             Name = "Одежда"
                         },
                         new
                         {
-                            Id = new Guid("05cc5aa4-fb5b-4644-b31b-034e620f69f3"),
+                            Id = new Guid("ff950d4d-5c6b-41a3-b5b5-bebb74cf54fc"),
                             CategoryId = new Guid("55f65fdb-59eb-4033-b4aa-9f7704b709f2"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4075),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4076),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8176),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8177),
                             Name = "Стрижка"
                         },
                         new
                         {
-                            Id = new Guid("c07bd8b5-de84-48f0-88b5-cc2174471416"),
+                            Id = new Guid("cb5656f1-52f4-434d-a35b-f1557d9f08c5"),
                             CategoryId = new Guid("55f65fdb-59eb-4033-b4aa-9f7704b709f2"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4079),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4080),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8180),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8181),
                             Name = "Маникюр"
                         },
                         new
                         {
-                            Id = new Guid("a0e479c3-10bb-497f-bccb-a556d611840d"),
+                            Id = new Guid("75e7bf17-1351-451f-b9e0-4f7797afe760"),
                             CategoryId = new Guid("55f65fdb-59eb-4033-b4aa-9f7704b709f2"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4085),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4086),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8184),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8185),
                             Name = "Салон красоты"
                         },
                         new
                         {
-                            Id = new Guid("441ae8ef-7173-4524-97f3-0b741eada82e"),
+                            Id = new Guid("3e0bc499-937b-4d6e-85c3-22e29792fe01"),
                             CategoryId = new Guid("9525e3cc-c1db-404b-960b-717c09297602"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4089),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4090),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8188),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8189),
                             Name = "Кредит на авто"
                         },
                         new
                         {
-                            Id = new Guid("a81d13b8-79d5-47f0-9fb6-0a1f46cb8038"),
+                            Id = new Guid("87fcdc88-d300-4a0b-9d1b-2bb91d4e4207"),
                             CategoryId = new Guid("9525e3cc-c1db-404b-960b-717c09297602"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4093),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4094),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8192),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8193),
                             Name = "Кредит на ПК"
                         },
                         new
                         {
-                            Id = new Guid("97967a6c-d1b4-4ef9-8a76-030abe9b8836"),
+                            Id = new Guid("5c9e3682-e7bb-49d1-ba1d-fad984b13584"),
                             CategoryId = new Guid("c468f57a-9771-4427-97ea-d174827803c7"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4097),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4098),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8197),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8198),
                             Name = "Подарки"
                         },
                         new
                         {
-                            Id = new Guid("47cf5a14-7ff4-4bf6-a7f0-df1b04683b57"),
+                            Id = new Guid("af997e88-c8ca-4054-8968-ef059206f1dd"),
                             CategoryId = new Guid("181336f7-1482-4c9f-9bff-f1cd186bf097"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4101),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4102),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8201),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8202),
                             Name = "Зарплата"
                         },
                         new
                         {
-                            Id = new Guid("0a5574f0-1f2c-49b6-945f-6cf173dd68c8"),
+                            Id = new Guid("240b3253-0caa-4ef4-a13b-caf2ee8a3577"),
                             CategoryId = new Guid("181336f7-1482-4c9f-9bff-f1cd186bf097"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4106),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4107),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8207),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8208),
                             Name = "Аванс"
                         },
                         new
                         {
-                            Id = new Guid("ef216a2f-6aed-4e66-a6d3-da979697e6ad"),
+                            Id = new Guid("f8517e33-73ec-458a-9087-e43fa447daab"),
                             CategoryId = new Guid("181336f7-1482-4c9f-9bff-f1cd186bf097"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4111),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4112),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8245),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8246),
                             Name = "Премия"
                         },
                         new
                         {
-                            Id = new Guid("c5abb7d9-5481-4be0-9c3d-051e6d909b4c"),
+                            Id = new Guid("54864952-c568-4005-8884-fdad472ac488"),
                             CategoryId = new Guid("25d1f35e-fa4c-4026-8d5f-01f85491cd59"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4115),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4116),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8250),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8251),
                             Name = "Аренда квартиры"
                         },
                         new
                         {
-                            Id = new Guid("1a803e96-3797-4802-a884-94f938f1cf2e"),
+                            Id = new Guid("08a7b02d-48a6-4154-97b1-b5a381fcc274"),
                             CategoryId = new Guid("20e41593-9451-4277-84ab-d10e8f9af04e"),
-                            CreatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4121),
-                            LastUpdatedDate = new DateTime(2021, 4, 1, 17, 43, 42, 541, DateTimeKind.Local).AddTicks(4122),
+                            CreatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8254),
+                            LastUpdatedDate = new DateTime(2021, 4, 24, 12, 59, 51, 176, DateTimeKind.Local).AddTicks(8255),
                             Name = "Подарки"
                         });
                 });
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.AccountDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.AccountDbModel", b =>
                 {
-                    b.HasOne("FinanceManager.Common.DbModels.BudgetDbModel", "Budget")
+                    b.HasOne("FinanceManager.Domain.DbModels.BudgetDbModel", "Budget")
                         .WithMany("Accounts")
                         .HasForeignKey("BudgetId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -571,21 +577,21 @@ namespace FinanceManager.Persistence.Migrations
                     b.Navigation("Budget");
                 });
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.TransactionDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.TransactionDbModel", b =>
                 {
-                    b.HasOne("FinanceManager.Common.DbModels.AccountDbModel", "Account")
+                    b.HasOne("FinanceManager.Domain.DbModels.AccountDbModel", "Account")
                         .WithMany("Transactions")
                         .HasForeignKey("AccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FinanceManager.Common.DbModels.TransactionCategoryDbModel", "Category")
+                    b.HasOne("FinanceManager.Domain.DbModels.TransactionCategoryDbModel", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FinanceManager.Common.DbModels.TransactionSubCategoryDbModel", "SubCategory")
+                    b.HasOne("FinanceManager.Domain.DbModels.TransactionSubCategoryDbModel", "SubCategory")
                         .WithMany()
                         .HasForeignKey("SubCategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -598,9 +604,9 @@ namespace FinanceManager.Persistence.Migrations
                     b.Navigation("SubCategory");
                 });
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.TransactionSubCategoryDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.TransactionSubCategoryDbModel", b =>
                 {
-                    b.HasOne("FinanceManager.Common.DbModels.TransactionCategoryDbModel", "Category")
+                    b.HasOne("FinanceManager.Domain.DbModels.TransactionCategoryDbModel", "Category")
                         .WithMany("SubCategories")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -609,17 +615,17 @@ namespace FinanceManager.Persistence.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.AccountDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.AccountDbModel", b =>
                 {
                     b.Navigation("Transactions");
                 });
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.BudgetDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.BudgetDbModel", b =>
                 {
                     b.Navigation("Accounts");
                 });
 
-            modelBuilder.Entity("FinanceManager.Common.DbModels.TransactionCategoryDbModel", b =>
+            modelBuilder.Entity("FinanceManager.Domain.DbModels.TransactionCategoryDbModel", b =>
                 {
                     b.Navigation("SubCategories");
                 });

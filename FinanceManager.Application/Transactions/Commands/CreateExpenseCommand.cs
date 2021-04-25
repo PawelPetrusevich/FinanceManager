@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FinanceManager.Application.Common.Interfaces;
-using FinanceManager.Common.DbModels;
+using FinanceManager.Domain.DbModels;
 using MediatR;
 
 namespace FinanceManager.Application.Transactions.Commands
@@ -13,15 +13,15 @@ namespace FinanceManager.Application.Transactions.Commands
 
         public decimal Value { get; set; }
 
-        public Guid CategoryId { get; set; }
+        public string CategoryId { get; set; }
 
-        public Guid SubCategoryId { get; set; }
+        public string SubCategoryId { get; set; }
 
         public string Description { get; set; }
 
         public Guid AccountId { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
 
         public class CreateExpenseCommandHandler : IRequestHandler<CreateExpenseCommand>
         {
@@ -40,8 +40,8 @@ namespace FinanceManager.Application.Transactions.Commands
 
                 entity.UserId = request.UserId;
                 entity.Value = request.Value;
-                entity.CategoryId = request.CategoryId;
-                entity.SubCategoryId = request.SubCategoryId;
+                entity.CategoryId = Guid.Parse(request.CategoryId);
+                entity.SubCategoryId = Guid.Parse(request.SubCategoryId);
                 entity.Description = request.Description;
                 entity.AccountId = request.AccountId;
                 entity.Date = request.Date;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using FinanceManager.Common.DbModels;
+using FinanceManager.Domain.DbModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinanceManager.Application.Common.Interfaces

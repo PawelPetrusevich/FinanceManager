@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FinanceManager.Application.Common.Mapping;
-using FinanceManager.Common.DbModels;
+using FinanceManager.Domain.DbModels;
 
 namespace FinanceManager.Application.Common.Models
 {

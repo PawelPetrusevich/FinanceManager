@@ -8,11 +8,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using FinanceManager.Application.Common.Enums;
 
 namespace FinanceManager.Application.Categories.Queries
 {
     public class GetCategoriesListQuery : IRequest<Dictionary<Guid, string>>
     {
+        public TransactionType TransactionType { get; set; }
+
         class GetCategoriesListQueryHandler : IRequestHandler<GetCategoriesListQuery, Dictionary<Guid, string>>
         {
             private readonly IFinanceManagerContext _financeManagerContext;
@@ -26,6 +29,7 @@ namespace FinanceManager.Application.Categories.Queries
             {
                 var categories = await _financeManagerContext
                     .TransactionCategories
+                    .Where(x=>x.TransactionType == request.TransactionType.ToString())
                     .ToDictionaryAsync(x => x.Id, y => y.Name);
 
                 return categories;

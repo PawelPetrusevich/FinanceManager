@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using FinanceManager.Identity.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using FinanceManager.Identity.Models;
 
-namespace FinanceManager.Data
+namespace FinanceManager.Identity.Context
 {
     public class IdentityDbContext : IdentityDbContext<ApplicationUser>
     {

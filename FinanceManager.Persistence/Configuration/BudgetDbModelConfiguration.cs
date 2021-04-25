@@ -1,8 +1,8 @@
-﻿using FinanceManager.Common.DbModels;
+﻿using FinanceManager.Domain.DbModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FinanceManager.Data.Configuration
+namespace FinanceManager.Persistence.Configuration
 {
     public class BudgetDbModelConfiguration : IEntityTypeConfiguration<BudgetDbModel>
     {

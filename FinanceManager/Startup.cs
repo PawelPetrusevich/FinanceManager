@@ -1,5 +1,4 @@
 using FinanceManager.Areas.Identity;
-using FinanceManager.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -18,7 +17,7 @@ using System.Threading.Tasks;
 using FinanceManager.Application;
 using FinanceManager.Application.Common.Interfaces;
 using FinanceManager.Application.Common.Services;
-using FinanceManager.Data.Context;
+using FinanceManager.Identity.Context;
 using FinanceManager.Identity.Models;
 using FinanceManager.Persistence;
 using FinanceManager.Services;

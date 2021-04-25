@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FinanceManager.Common.DbModels
+namespace FinanceManager.Domain.DbModels
 {
     public class AccountDbModel : AuditDbModel
     {

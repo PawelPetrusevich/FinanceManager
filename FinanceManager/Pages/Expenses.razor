@@ -25,12 +25,22 @@
                 </InputSelect>
             </div>
             
-            <div class="input-container">
-                <option value="">--- SELECT ACCOUNT ---</option>
-                <InputSelect @bind-Value="CreateExpenseCommand.CategoryId" class="form-select">
+            <div class="input-container">                
+                <InputSelect @bind-Value="CreateExpenseCommand.CategoryId" @oninput="@ChangeCategoryEvent" class="form-select">
+                    <option value="">--- SELECT CATEGORY ---</option>
                     @foreach(var category in CategoryList)
                     {
-                        <option value="@category.Key"></option>
+                        <option value="@category.Key">@category.Value</option>
+                    }
+                </InputSelect>
+            </div>
+            
+            <div class="input-container">                
+                <InputSelect @bind-Value="CreateExpenseCommand.SubCategoryId" class="form-select">
+                    <option value="">--- SELECT SUB CATEGORY ---</option>
+                    @foreach(var subCategory in SubCategoryList)
+                    {
+                        <option value="@subCategory.Key">@subCategory.Value</option>
                     }
                 </InputSelect>
             </div>

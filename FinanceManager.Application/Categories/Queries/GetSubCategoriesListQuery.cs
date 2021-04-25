@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace FinanceManager.Application.Categories.Queries
 {
-    class GetSubCategoriesListQuery : IRequest<Dictionary<Guid, string>>
+    public class GetSubCategoriesListQuery : IRequest<Dictionary<Guid, string>>
     {
         public Guid CategoryId { get; set; }
 
-        public class GetSubCategoriesListQueryGandler : IRequestHandler<GetSubCategoriesListQuery, Dictionary<Guid, string>>
+        public class GetSubCategoriesListQueryHandler : IRequestHandler<GetSubCategoriesListQuery, Dictionary<Guid, string>>
         {
             private readonly IFinanceManagerContext _financeManagerContext;
 
-            public GetSubCategoriesListQueryGandler(IFinanceManagerContext financeManagerContext)
+            public GetSubCategoriesListQueryHandler(IFinanceManagerContext financeManagerContext)
             {
                 _financeManagerContext = financeManagerContext;
             }

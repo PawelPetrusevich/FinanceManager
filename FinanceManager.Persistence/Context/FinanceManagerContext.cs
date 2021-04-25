@@ -1,12 +1,11 @@
 ﻿using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
 using FinanceManager.Application.Common.Interfaces;
-using FinanceManager.Common.DbModels;
+using FinanceManager.Domain.DbModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinanceManager.Data.Context
+namespace FinanceManager.Persistence.Context
 {
     public class FinanceManagerContext : DbContext, IFinanceManagerContext
     {

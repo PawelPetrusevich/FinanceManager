@@ -1,7 +1,6 @@
 ﻿using System;
-using FinanceManager.Common.Enums;
 
-namespace FinanceManager.Common.DbModels
+namespace FinanceManager.Domain.DbModels
 {
     public class TransactionDbModel : AuditDbModel
     {
@@ -17,7 +16,7 @@ namespace FinanceManager.Common.DbModels
 
         public virtual TransactionSubCategoryDbModel SubCategory { get; set; }
 
-        public TransactionType TransactionType { get; set; }
+        public string TransactionType { get; set; }
 
         public Guid AccountId { get; set; }
 
