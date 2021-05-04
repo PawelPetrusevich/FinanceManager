@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
+using FinanceManager.Application.Common.Enums;
 using FinanceManager.Application.Common.Interfaces;
+using FinanceManager.Application.Common.Models;
 using FinanceManager.Domain.DbModels;
 using MediatR;
 
 namespace FinanceManager.Application.Transactions.Commands
 {
-    public class CreateExpenseCommand : IRequest
+    public class CreateExpenseCommand : IRequest<TransactionVM>
     {
         public Guid UserId { get; set; }
 
@@ -19,20 +22,24 @@ namespace FinanceManager.Application.Transactions.Commands
 
         public string Description { get; set; }
 
-        public Guid AccountId { get; set; }
+        public string AccountId { get; set; }
 
         public DateTime Date { get; set; } = DateTime.Now;
 
-        public class CreateExpenseCommandHandler : IRequestHandler<CreateExpenseCommand>
+        public TransactionType TransactionType { get; set; }
+
+        public class CreateExpenseCommandHandler : IRequestHandler<CreateExpenseCommand, TransactionVM>
         {
             private readonly IFinanceManagerContext _financeManagerContext;
+            private readonly IMapper _mapper;
 
-            public CreateExpenseCommandHandler(IFinanceManagerContext financeManagerContext)
+            public CreateExpenseCommandHandler(IFinanceManagerContext financeManagerContext, IMapper mapper)
             {
                 _financeManagerContext = financeManagerContext;
+                _mapper = mapper;
             }
 
-            public async Task<Unit> Handle(CreateExpenseCommand request, CancellationToken cancellationToken)
+            public async Task<TransactionVM> Handle(CreateExpenseCommand request, CancellationToken cancellationToken)
             {
                 var entity = new TransactionDbModel();
 
@@ -43,12 +50,15 @@ namespace FinanceManager.Application.Transactions.Commands
                 entity.CategoryId = Guid.Parse(request.CategoryId);
                 entity.SubCategoryId = Guid.Parse(request.SubCategoryId);
                 entity.Description = request.Description;
-                entity.AccountId = request.AccountId;
+                entity.AccountId = Guid.Parse(request.AccountId);
                 entity.Date = request.Date;
+                entity.TransactionType = request.TransactionType.ToString();
 
                 await _financeManagerContext.SaveChangesAsync(cancellationToken);
 
-                return default(Unit);
+                var result = _mapper.Map<TransactionDbModel, TransactionVM>(entity);
+
+                return result;
             }
         }
     }

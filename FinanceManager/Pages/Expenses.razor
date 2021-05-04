@@ -6,7 +6,7 @@
 
     <div class="row">
         <h3>Add new expense.</h3>
-        <EditForm Model="CreateExpenseCommand" class="row">
+        <EditForm Model="CreateExpenseCommand" OnSubmit="@CreateNewExpense" class="row">
             <div class="input-container">
                 <InputDate @bind-Value="CreateExpenseCommand.Date" class="form-control"></InputDate>
             </div>
@@ -43,6 +43,10 @@
                         <option value="@subCategory.Key">@subCategory.Value</option>
                     }
                 </InputSelect>
+            </div>
+            
+            <div class="input-container">
+                <button class="btn btn-primary" type="submit">Create</button>
             </div>
         </EditForm>
     </div>

@@ -11,6 +11,7 @@ using FinanceManager.Application.Transactions.Commands;
 using FinanceManager.Application.Transactions.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace FinanceManager.Pages
 {
@@ -22,7 +23,7 @@ namespace FinanceManager.Pages
 
         [Inject] private ICurrencyService _currencyService { get; set; }
 
-        protected IEnumerable<TransactionVM> Transactions { get; set; } = new List<TransactionVM>();
+        protected List<TransactionVM> Transactions { get; set; } = new List<TransactionVM>();
 
         protected CreateExpenseCommand CreateExpenseCommand { get; set; } = new CreateExpenseCommand();
 
@@ -52,7 +53,7 @@ namespace FinanceManager.Pages
             {
                 TransactionType = TransactionType.Cunsumption
             });
-
+            
             await base.OnInitializedAsync();
         }
 
@@ -69,6 +70,19 @@ namespace FinanceManager.Pages
             }
 
             CreateExpenseCommand.SubCategoryId = "";
+
+            StateHasChanged();
+        }
+
+        protected async Task CreateNewExpense(EditContext context)
+        {
+            CreateExpenseCommand.UserId = Guid.Parse(_currentUserService.User.Id);
+
+            var createdTransaction = await _mediator.Send(CreateExpenseCommand);
+
+            CreateExpenseCommand = new CreateExpenseCommand();
+
+            Transactions.Add(createdTransaction);
 
             StateHasChanged();
         }

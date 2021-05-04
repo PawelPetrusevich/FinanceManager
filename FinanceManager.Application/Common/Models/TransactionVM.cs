@@ -29,7 +29,8 @@ namespace FinanceManager.Application.Common.Models
                 .ForMember(d => d.SubCategory, opt => opt.MapFrom((s => s.SubCategory.Name)))
                 .ForMember(d => d.Currency, opt => opt.MapFrom((s => s.Account.Currency)))
                 .ForMember(d => d.Description, opt => opt.MapFrom((s => s.Description)))
-                .ForMember(d => d.Date, opt => opt.MapFrom((s => s.CreatedDate)));
+                .ForMember(d => d.Date, opt => opt.MapFrom(s => s.Date))
+                .ForMember(d=>d.UserId,opt=>opt.MapFrom(s=>s.UserId));
         }
     }
 }
