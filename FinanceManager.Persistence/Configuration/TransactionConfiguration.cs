@@ -20,7 +20,7 @@ namespace FinanceManager.Persistence.Configuration
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(x => x.TransactionType)
-                .HasConversion<int>();
+                .HasConversion<string>();
 
             builder.Property(x => x.Value)
                 .HasColumnType("decimal(10,2)");

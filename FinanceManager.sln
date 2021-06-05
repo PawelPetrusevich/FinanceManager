@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceManager", "FinanceMa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceManager.Identity", "FinanceManager.Identity\FinanceManager.Identity.csproj", "{8C440875-02B7-4416-B82C-53F74A0C5542}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceManager.Infrastructure", "FinanceManager.Infrastructure\FinanceManager.Infrastructure.csproj", "{3A0AA178-D3F5-4C75-9C04-4112FB66EFF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceManager.Infrastructure", "FinanceManager.Infrastructure\FinanceManager.Infrastructure.csproj", "{3A0AA178-D3F5-4C75-9C04-4112FB66EFF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceManager.Application", "FinanceManager.Application\FinanceManager.Application.csproj", "{23DD804B-E81D-4E4B-B807-2B3AF1D26A82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceManager.Application", "FinanceManager.Application\FinanceManager.Application.csproj", "{23DD804B-E81D-4E4B-B807-2B3AF1D26A82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceManager.Persistence", "FinanceManager.Persistence\FinanceManager.Persistence.csproj", "{9A9B997D-CDA1-4C73-BD13-074304E3BDDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceManager.Persistence", "FinanceManager.Persistence\FinanceManager.Persistence.csproj", "{9A9B997D-CDA1-4C73-BD13-074304E3BDDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceManager.Domain", "FinanceManager.Domain\FinanceManager.Domain.csproj", "{DB8ACA5F-4A8C-4C92-BB4A-D50CF6D3F275}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinanceManager.Domain", "FinanceManager.Domain\FinanceManager.Domain.csproj", "{DB8ACA5F-4A8C-4C92-BB4A-D50CF6D3F275}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -44,9 +44,10 @@ namespace FinanceManager.Pages
                 BudgetId = Guid.Parse(_currentUserService.User.BudgetId)
             });
 
-            Transactions = await _mediator.Send(new GetExpensesListQuery
+            Transactions = await _mediator.Send(new GetTransactionsListQuery
             {
-                UserId = Guid.Parse(_currentUserService.User.Id)
+                UserId = Guid.Parse(_currentUserService.User.Id),
+                TransactionType = TransactionType.Cunsumption
             });
 
             CategoryList = await _mediator.Send(new GetCategoriesListQuery
@@ -77,6 +78,7 @@ namespace FinanceManager.Pages
         protected async Task CreateNewExpense(EditContext context)
         {
             CreateExpenseCommand.UserId = Guid.Parse(_currentUserService.User.Id);
+            CreateExpenseCommand.TransactionType = TransactionType.Cunsumption;
 
             var createdTransaction = await _mediator.Send(CreateExpenseCommand);
 

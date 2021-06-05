@@ -1,5 +1,7 @@
 ﻿@page "/expenses"
 
+@using FinanceManager.Components.Transactions;
+
 <h3>Expenses</h3>
 
 <div class="container">
@@ -24,27 +26,27 @@
                     }
                 </InputSelect>
             </div>
-            
-            <div class="input-container">                
+
+            <div class="input-container">
                 <InputSelect @bind-Value="CreateExpenseCommand.CategoryId" @oninput="@ChangeCategoryEvent" class="form-select">
                     <option value="">--- SELECT CATEGORY ---</option>
-                    @foreach(var category in CategoryList)
+                    @foreach (var category in CategoryList)
                     {
                         <option value="@category.Key">@category.Value</option>
                     }
                 </InputSelect>
             </div>
-            
-            <div class="input-container">                
+
+            <div class="input-container">
                 <InputSelect @bind-Value="CreateExpenseCommand.SubCategoryId" class="form-select">
                     <option value="">--- SELECT SUB CATEGORY ---</option>
-                    @foreach(var subCategory in SubCategoryList)
+                    @foreach (var subCategory in SubCategoryList)
                     {
                         <option value="@subCategory.Key">@subCategory.Value</option>
                     }
                 </InputSelect>
             </div>
-            
+
             <div class="input-container">
                 <button class="btn btn-primary" type="submit">Create</button>
             </div>
@@ -53,30 +55,6 @@
 
     <div class="row">
         <h3>Expense transactions list</h3>
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Value</th>
-                    <th>Currency</th>
-                    <th>Category</th>
-                    <th>SubCategory</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var transaction in Transactions)
-                {
-                    <tr>
-                        <th>@transaction.Date</th>
-                        <th>@transaction.Value</th>
-                        <th>@transaction.Currency</th>
-                        <th>@transaction.Category</th>
-                        <th>@transaction.SubCategory</th>
-                        <th>@transaction.Description</th>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        <TransactionsTableBase Transactions="@Transactions"></TransactionsTableBase>
     </div>
 </div>

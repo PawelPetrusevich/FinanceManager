@@ -13,22 +13,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinanceManager.Application.Transactions.Queries
 {
-    public class GetExpensesListQuery : IRequest<List<TransactionVM>>
+    public class GetTransactionsListQuery : IRequest<List<TransactionVM>>
     {
         public Guid? UserId { get; set; }
 
-        public class GetExpensesListQueryHandler : IRequestHandler<GetExpensesListQuery, List<TransactionVM>>
+        public TransactionType TransactionType { get; set; }
+
+        public class GetTransactionsListQueryHandler : IRequestHandler<GetTransactionsListQuery, List<TransactionVM>>
         {
             private readonly IFinanceManagerContext _financeManagerContext;
             private readonly IMapper _mapper;
 
-            public GetExpensesListQueryHandler(IFinanceManagerContext financeManagerContext, IMapper mapper)
+            public GetTransactionsListQueryHandler(IFinanceManagerContext financeManagerContext, IMapper mapper)
             {
                 _financeManagerContext = financeManagerContext;
                 _mapper = mapper;
             }
 
-            public async Task<List<TransactionVM>> Handle(GetExpensesListQuery request, CancellationToken cancellationToken)
+            public async Task<List<TransactionVM>> Handle(GetTransactionsListQuery request, CancellationToken cancellationToken)
             {
                 var response = await _financeManagerContext
                     .Transactions
@@ -36,7 +38,7 @@ namespace FinanceManager.Application.Transactions.Queries
                     .Include(x => x.SubCategory)
                     .Include(x => x.Account)
                     .Where(x => x.UserId == request.UserId)
-                    .Where(x=>x.TransactionType == TransactionType.Cunsumption.ToString())
+                    .Where(x=>x.TransactionType == request.TransactionType.ToString())
                     .ProjectTo<TransactionVM>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 

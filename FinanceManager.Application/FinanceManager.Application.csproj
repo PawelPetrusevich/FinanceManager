@@ -8,7 +8,6 @@
     <Folder Include="Categories\Commands\" />
     <Folder Include="Common\Constants\" />
     <Folder Include="Common\Services\" />
-    <Folder Include="Transactions\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
