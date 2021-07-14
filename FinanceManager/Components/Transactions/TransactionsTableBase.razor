@@ -1,0 +1,30 @@
+﻿
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Value</th>
+            <th>Currency</th>
+            <th>Category</th>
+            <th>SubCategory</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Transactions != null && Transactions.Any())
+        {
+            @foreach (var transaction in Transactions)
+            {
+                <tr>
+                    <th>@transaction.Date</th>
+                    <th>@transaction.Value</th>
+                    <th>@transaction.Currency</th>
+                    <th>@transaction.Category</th>
+                    <th>@transaction.SubCategory</th>
+                    <th>@transaction.Description</th>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

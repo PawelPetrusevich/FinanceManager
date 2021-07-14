@@ -1,0 +1,62 @@
+﻿@page "/incomes"
+@attribute [Authorize]
+
+<h3>Incomes</h3>
+
+<div class="container">
+    <div class="row">
+        <h3>Add new expense.</h3>
+        <EditForm Model="CreateTransactionCommand" OnSubmit="@CreateNewIncome" class="row">
+            <div class="input-container">
+                <InputDate @bind-Value="CreateTransactionCommand.Date" class="form-control"></InputDate>
+            </div>
+
+            <div class="input-container">
+                <InputNumber @bind-Value="CreateTransactionCommand.Value" class="form-control"></InputNumber>
+            </div>
+
+            <div class="input-container">
+                <InputSelect @bind-Value="CreateTransactionCommand.AccountId" class="form-select">
+                    <option value="">--- SELECT ACCOUNT ---</option>
+                    @foreach (var account in UserBudgetAccounts)
+                    {
+                        <option value="@account.AccountId" @key="@account.AccountId">@account.AcconuntName</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="input-container">
+                <InputSelect @bind-Value="CreateTransactionCommand.CategoryId" @oninput="@ChangeCategoryEvent" class="form-select">
+                    <option value="">--- SELECT CATEGORY ---</option>
+                    @foreach (var category in CategoryList)
+                    {
+                        <option value="@category.Key">@category.Value</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="input-container">
+                <InputSelect @bind-Value="CreateTransactionCommand.SubCategoryId" class="form-select">
+                    <option value="">--- SELECT SUB CATEGORY ---</option>
+                    @foreach (var subCategory in SubCategoryList)
+                    {
+                        <option value="@subCategory.Key">@subCategory.Value</option>
+                    }
+                </InputSelect>
+            </div>
+            
+            <div class="input-container">
+                <InputTextArea @bind-Value="CreateTransactionCommand.Description" class="form-control"></InputTextArea>
+            </div>
+
+            <div class="input-container">
+                <button class="btn btn-primary" type="submit">Create</button>
+            </div>
+        </EditForm>
+    </div>
+
+    <div class="row">
+        <h3>Incomes transaction list</h3>
+        <TransactionsTableBase Transactions="Transactions"></TransactionsTableBase>
+    </div>
+</div>

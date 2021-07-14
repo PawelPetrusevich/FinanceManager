@@ -1,0 +1,70 @@
+﻿@page "/accounts"
+@attribute [Authorize]
+
+<h3>Account</h3>
+<div class="container">
+
+    <div>
+        <h3>Add new account</h3>
+        <EditForm Model="CreateAccountCommand" OnSubmit="CreateNewAccount" class="row">
+
+            <div class="input-container">
+                <InputText @bind-Value="CreateAccountCommand.AcconuntName" class="form-control"></InputText>
+            </div>
+
+            <div class="input-container">
+                <InputNumber @bind-Value="CreateAccountCommand.AccountSum" class="form-control"></InputNumber>
+            </div>
+
+            <div class="input-container">
+                <InputSelect @bind-Value="CreateAccountCommand.Currency" class="form-select">
+
+                    <option value="">--- SELECT CURRENCY ---</option>
+
+                    @foreach (var currency in CurrencyList)
+                    {
+                        <option value="@currency">@currency</option>
+                    }
+
+                </InputSelect>
+
+            </div>
+        
+            <div class="input-container">
+                <button class="btn btn-primary" type="submit">Create</button>
+            </div>
+
+        </EditForm>
+    </div>
+    
+    <div>
+        <h3>Active account list</h3>
+
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Balance</th>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var account in AccountList)
+                {
+                    <tr>
+                        <th></th>
+                        <th>@account.AcconuntName</th>
+                        <th>@account.AccountSum</th>
+                        <th>@account.Currency</th>
+                        <th></th>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
