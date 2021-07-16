@@ -39,6 +39,8 @@ namespace FinanceManager.Application.Transactions.Queries
                     .Include(x => x.Account)
                     .Where(x => x.UserId == request.UserId)
                     .Where(x=>x.TransactionType == request.TransactionType.ToString())
+                    .OrderByDescending(x=>x.Date)
+                    .Take(20)
                     .ProjectTo<TransactionVM>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
