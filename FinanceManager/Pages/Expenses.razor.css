@@ -1,3 +1,15 @@
 ﻿.input-container {
     width: auto;
+    margin: 10px 0px;
 }
+
+.accordion-item {
+    padding: 0px;
+    margin: 10px 0px;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #fff;
+    color: #000000;
+}
+
