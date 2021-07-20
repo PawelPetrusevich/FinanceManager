@@ -54,7 +54,7 @@ namespace FinanceManager.Application.Transactions.Commands
                 entity.Date = request.Date;
                 entity.TransactionType = request.TransactionType.ToString();
 
-                //await _financeManagerContext.SaveChangesAsync(cancellationToken);
+                await _financeManagerContext.SaveChangesAsync(cancellationToken);
 
                 var result = _mapper.Map<TransactionDbModel, TransactionVM>(entity);
 
