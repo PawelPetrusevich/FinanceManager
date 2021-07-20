@@ -1,10 +1,19 @@
 ﻿@page "/incomes"
+@using FinanceManager.Application.Common.Enums
 
 <h3>Incomes</h3>
 
 <div class="container">
     <div class="row">
+        <TransactionEditForm
+             TransactionType="@TransactionType"
+             AddNewTransactionCallback="AddNewTransactionHandler">
+        </TransactionEditForm>
+    </div>
+    
+
+    <div class="row">
         <h3>Incomes transaction list</h3>
-        <TransactionsTableBase Transactions="Transactions"></TransactionsTableBase>
+        <TransactionsTableBase @ref="transactionTable" Transactions="Transactions"></TransactionsTableBase>
     </div>
 </div>

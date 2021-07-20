@@ -11,9 +11,9 @@ namespace FinanceManager.Persistence
         public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<FinanceManagerContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("FinanceManagerConnection")));
+                options.UseSqlServer(configuration.GetConnectionString("FinanceManagerConnection")), ServiceLifetime.Transient);
 
-            services.AddScoped<IFinanceManagerContext>(provider => provider.GetService<FinanceManagerContext>());
+            services.AddTransient<IFinanceManagerContext>(provider => provider.GetService<FinanceManagerContext>());
 
             return services;
         }

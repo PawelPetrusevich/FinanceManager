@@ -19,5 +19,16 @@ namespace FinanceManager.Components.Transactions
     {
         [Parameter]
         public List<TransactionVM> Transactions { get; set; } = new List<TransactionVM>();
+
+        public async Task AddTransactionToTableAsync(TransactionVM transaction)
+        {
+            Transactions.Add(transaction);
+            Transactions = Transactions
+                ?.OrderByDescending(x => x.Date)
+                ?.Take(20)
+                .ToList();
+
+            await InvokeAsync(StateHasChanged);
+        }
     }
 }

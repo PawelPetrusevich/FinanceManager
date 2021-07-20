@@ -7,59 +7,13 @@
 <div class="container">
 
     <div class="row">
-        <div class="accordion-item">
-            <button class="accordion-button" id="headingOne" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
-                Add new expense.
-            </button>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
-                <EditForm Model="CreateExpenseCommand" OnSubmit="@CreateNewExpense" class="accordion-body">
-                    <div class="input-container">
-                        <InputDate @bind-Value="CreateExpenseCommand.Date" class="form-control"></InputDate>
-                    </div>
-
-                    <div class="input-container">
-                        <InputNumber @bind-Value="CreateExpenseCommand.Value" class="form-control"></InputNumber>
-                    </div>
-
-                    <div class="input-container">
-                        <InputSelect @bind-Value="CreateExpenseCommand.AccountId" class="form-select">
-                            <option value="">--- SELECT ACCOUNT ---</option>
-                            @foreach (var account in UserBudgetAccounts)
-                            {
-                                <option value="@account.AccountId" @key="@account.AccountId">@account.AcconuntName</option>
-                            }
-                        </InputSelect>
-                    </div>
-
-                    <div class="input-container">
-                        <InputSelect @bind-Value="CreateExpenseCommand.CategoryId" @oninput="@ChangeCategoryEvent" class="form-select">
-                            <option value="">--- SELECT CATEGORY ---</option>
-                            @foreach (var category in CategoryList)
-                            {
-                                <option value="@category.Key">@category.Value</option>
-                            }
-                        </InputSelect>
-                    </div>
-
-                    <div class="input-container">
-                        <InputSelect @bind-Value="CreateExpenseCommand.SubCategoryId" class="form-select">
-                            <option value="">--- SELECT SUB CATEGORY ---</option>
-                            @foreach (var subCategory in SubCategoryList)
-                            {
-                                <option value="@subCategory.Key">@subCategory.Value</option>
-                            }
-                        </InputSelect>
-                    </div>
-
-                    <div class="input-container">
-                        <button class="btn btn-primary" type="submit">Create</button>
-                    </div>
-                </EditForm>
-            </div>
-        </div>
+        <TransactionEditForm
+             TransactionType="@TransactionType"
+             AddNewTransactionCallback="AddNewTransactionHandler">
+        </TransactionEditForm>
     </div>
 
     <div class="row">
-        <TransactionsTableBase Transactions="@Transactions"></TransactionsTableBase>
+        <TransactionsTableBase @ref="transactionTable" Transactions="@Transactions"></TransactionsTableBase>
     </div>
 </div>

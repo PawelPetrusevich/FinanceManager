@@ -10,7 +10,7 @@ using MediatR;
 
 namespace FinanceManager.Application.Transactions.Commands
 {
-    public class CreateExpenseCommand : IRequest<TransactionVM>
+    public class CreateTransactionCommand : IRequest<TransactionVM>
     {
         public Guid UserId { get; set; }
 
@@ -28,7 +28,7 @@ namespace FinanceManager.Application.Transactions.Commands
 
         public TransactionType TransactionType { get; set; }
 
-        public class CreateExpenseCommandHandler : IRequestHandler<CreateExpenseCommand, TransactionVM>
+        public class CreateExpenseCommandHandler : IRequestHandler<CreateTransactionCommand, TransactionVM>
         {
             private readonly IFinanceManagerContext _financeManagerContext;
             private readonly IMapper _mapper;
@@ -39,7 +39,7 @@ namespace FinanceManager.Application.Transactions.Commands
                 _mapper = mapper;
             }
 
-            public async Task<TransactionVM> Handle(CreateExpenseCommand request, CancellationToken cancellationToken)
+            public async Task<TransactionVM> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
             {
                 var entity = new TransactionDbModel();
 
@@ -54,7 +54,7 @@ namespace FinanceManager.Application.Transactions.Commands
                 entity.Date = request.Date;
                 entity.TransactionType = request.TransactionType.ToString();
 
-                await _financeManagerContext.SaveChangesAsync(cancellationToken);
+                //await _financeManagerContext.SaveChangesAsync(cancellationToken);
 
                 var result = _mapper.Map<TransactionDbModel, TransactionVM>(entity);
 

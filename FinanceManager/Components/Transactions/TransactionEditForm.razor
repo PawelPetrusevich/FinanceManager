@@ -1,0 +1,53 @@
+﻿@using FinanceManager.Application.Transactions.Commands
+
+
+<div class="accordion-item">
+    <button class="accordion-button" id="headingOne" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
+        Add new transaction.
+    </button>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+        <EditForm Model="CreateTransactionCommand" OnSubmit="@CreateNewExpense" class="accordion-body">
+            <div class="input-container">
+                <InputDate @bind-Value="CreateTransactionCommand.Date" class="form-control"></InputDate>
+            </div>
+
+            <div class="input-container">
+                <InputNumber @bind-Value="CreateTransactionCommand.Value" class="form-control"></InputNumber>
+            </div>
+
+            <div class="input-container">
+                <InputSelect @bind-Value="CreateTransactionCommand.AccountId" class="form-select">
+                    <option value="">--- SELECT ACCOUNT ---</option>
+                    @foreach (var account in UserBudgetAccounts)
+                    {
+                        <option value="@account.AccountId" @key="@account.AccountId">@account.AcconuntName</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="input-container">
+                <InputSelect @bind-Value="CreateTransactionCommand.CategoryId" @oninput="@ChangeCategoryEvent" class="form-select">
+                    <option value="">--- SELECT CATEGORY ---</option>
+                    @foreach (var category in CategoryList)
+                    {
+                        <option value="@category.Key">@category.Value</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="input-container">
+                <InputSelect @bind-Value="CreateTransactionCommand.SubCategoryId" class="form-select">
+                    <option value="">--- SELECT SUB CATEGORY ---</option>
+                    @foreach (var subCategory in SubCategoryList)
+                    {
+                        <option value="@subCategory.Key">@subCategory.Value</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="input-container">
+                <button class="btn btn-primary" type="submit">Create</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
