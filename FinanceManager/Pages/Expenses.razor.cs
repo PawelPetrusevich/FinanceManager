@@ -42,9 +42,9 @@ namespace FinanceManager.Pages
             await base.OnInitializedAsync();
         }
 
-        protected async Task AddNewTransactionHandler(TransactionVM transaction)
+        protected void AddNewTransactionHandler(TransactionVM transaction)
         {
-            await transactionTable.AddTransactionToTableAsync(transaction);
+            Task.Run(async () => await transactionTable.AddTransactionToTableAsync(transaction).ConfigureAwait(true));
         }
     }
 }
