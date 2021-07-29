@@ -1,13 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FinanceManager.Domain.DbModels
 {
-    public class BudgetStatisticItem : AuditDbModel
+    public class BudgetStatisticItem
     {
-        public Guid ParentId { get; set; }
+        public decimal Sum { get; set; }
 
-        public decimal CurrentSum { get; set; }
+        public string CategoryName { get; set; }
 
-        public decimal PastSum { get; set; }
+        public string SubCategoryName { get; set; }
+
+        public string Currency { get; set; }
+
+        public DateTime Date { get; set; }
+
+        public string TransactionType { get; set; }
     }
 }

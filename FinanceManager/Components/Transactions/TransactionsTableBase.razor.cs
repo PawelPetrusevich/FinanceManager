@@ -12,6 +12,7 @@ using FinanceManager.Application.Transactions.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Rendering;
 
 namespace FinanceManager.Components.Transactions
 {
@@ -28,7 +29,7 @@ namespace FinanceManager.Components.Transactions
                 ?.Take(20)
                 .ToList();
 
-            await InvokeAsync(StateHasChanged);
+            await InvokeAsync(StateHasChanged).ConfigureAwait(true);
         }
     }
 }
