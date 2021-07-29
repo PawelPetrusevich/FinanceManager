@@ -1,4 +1,5 @@
 ﻿@page "/budget"
+@using FinanceManager.Application.Common.Enums
 
 
     <h3>Budget</h3>
@@ -8,12 +9,16 @@
 
             <div class="col">
                 <h1>Expenses</h1>
-                <BudgetStatisticTableBase></BudgetStatisticTableBase>
+                <BudgetStatisticTableBase
+                    Items="@BudgetStatisticVm?.StatisticItems.Where(x => x.TransactionType == TransactionType.Cunsumption.ToString()).ToList()">
+                </BudgetStatisticTableBase>
             </div>
 
             <div class="col">
                 <h1>Incomes</h1>
-                <BudgetStatisticTableBase></BudgetStatisticTableBase>
+                <BudgetStatisticTableBase
+                    Items="@BudgetStatisticVm?.StatisticItems.Where(x => x.TransactionType == TransactionType.Income.ToString()).ToList()">
+                </BudgetStatisticTableBase>
             </div>
 
         </div>
