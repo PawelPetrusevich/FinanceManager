@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Transactions\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
