@@ -85,8 +85,7 @@ namespace FinanceManager.Application.Budget.Queries
                     .GroupBy(x => new
                     {
                         Category = x.CategoryName,
-                        TransactionType = x.TransactionType,
-                        Date = x.Date
+                        TransactionType = x.TransactionType
                     })
                     .Select(x => new BudgetStatisticItemVM
                     {
@@ -97,8 +96,7 @@ namespace FinanceManager.Application.Budget.Queries
                         ChildItems = x
                             .GroupBy(z => new
                             {
-                                SubCategoryName = z.SubCategoryName,
-                                Date = z.Date
+                                SubCategoryName = z.SubCategoryName
                             })
                             .Select(z => new BudgetStatisticItemVM
                             {
