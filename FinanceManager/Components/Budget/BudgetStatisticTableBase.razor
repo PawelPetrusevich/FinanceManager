@@ -1,31 +1,30 @@
-﻿<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Category</th>
-        <th>This month</th>
-        <th>Past month</th>
-    </tr>
-    </thead>
-    <tbody>
-    @if (Items != null && Items.Any())
-    {
-        foreach (var item in Items)
-        {
-            <tr>
-                <td></td>
-                <td>@item.Name</td>
-                <td>@item.Sum.ToString("#,#.00#;(#,#.00#)")</td>
-                <td>@item.SumPrevious.ToString("#,#.00#;(#,#.00#)")</td>
-            </tr>
-        }
+﻿<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Category</th>
+			<th>This month</th>
+			<th>Past month</th>
+		</tr>
+	</thead>
+	@if (Items != null && Items.Any())
+	{
+		<tbody>
 
-        <tr>
-            <td></td>
-            <td></td>
-            <td>@Items.Sum(x=>x.Sum).ToString("#,#.00#;(#,#.00#)")</td>
-            <td>@Items.Sum(x=>x.SumPrevious).ToString("#,#.00#;(#,#.00#)")</td>
-        </tr>
-    }
-    </tbody>
+			@foreach (var item in Items)
+			{
+				<BudgetStatisticItem Item=@item></BudgetStatisticItem>
+			}
+
+		</tbody>
+
+		<tfoot>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>@Items.Sum(x=>x.Sum).ToString("#,#.00#;(#,#.00#)")</td>
+				<td>@Items.Sum(x=>x.SumPrevious).ToString("#,#.00#;(#,#.00#)")</td>
+			</tr>
+		</tfoot>
+	}
 </table>
