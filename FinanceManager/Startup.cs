@@ -22,6 +22,7 @@ using FinanceManager.Identity.Models;
 using FinanceManager.Persistence;
 using FinanceManager.Services;
 using Microsoft.OpenApi.Models;
+using FluentValidation.AspNetCore;
 
 namespace FinanceManager
 {
@@ -67,6 +68,10 @@ namespace FinanceManager
             {
                 option.SwaggerDoc("v1", new OpenApiInfo { Title = "Finance manager API", Description = "API", Version = "v1" });
             });
+
+            services
+                .AddMvc()
+                .AddFluentValidation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

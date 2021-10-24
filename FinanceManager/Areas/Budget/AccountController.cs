@@ -1,10 +1,12 @@
-﻿using FinanceManager.Application.Accounts.Queries;
+﻿using FinanceManager.Application.Accounts.Commands;
+using FinanceManager.Application.Accounts.Queries;
 using FinanceManager.Application.Common.Models;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FinanceManager.Areas.Budget
@@ -25,15 +27,43 @@ namespace FinanceManager.Areas.Budget
         /// </summary>
         /// <param name="userId">User id.</param>
         /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> GetAccountVMs(string userId)
+        [HttpGet("{userId}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<AccountVM>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetAccountVMs(Guid? userId)
         {
-            var accaunts = await _mediator.Send(new GetAccountsListQuery
+            try
             {
-                UserId = Guid.Parse(userId)
-            });
+                if (!userId.HasValue)
+                {
+                    return BadRequest();
+                }
 
-            return Ok(accaunts);
+                var accaunts = await _mediator.Send(new GetAccountsListQuery
+                {
+                    UserId = userId.Value
+                });
+
+                if (accaunts != null && accaunts.Any())
+                {
+                    return Ok(accaunts);
+                }
+
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, "Internal server error.");
+            }
+
+
+        }
+
+        public async Task<IActionResult> CreateAccount([FromBody]CreateAccountCommand command)
+        {
+            throw new Exception();
         }
     }
 }

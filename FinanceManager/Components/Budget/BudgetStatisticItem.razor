@@ -1,0 +1,16 @@
+﻿
+<tr @onclick="ToogleTableRow">
+	<td colspan=2>@Item.Name</td>
+	<td>@Item.Sum.ToString("#,#.00#;(#,#.00#)")</td>
+	<td>@Item.SumPrevious.ToString("#,#.00#;(#,#.00#)")</td>
+</tr>
+
+@foreach (var childItems in Item.ChildItems)
+{
+	<tr class="@CollapseCssClass">
+		<td></td>
+		<td>@childItems.Name</td>
+		<td>@childItems.Sum.ToString("#,#.00#;(#,#.00#)")</td>
+		<td>@childItems.SumPrevious.ToString("#,#.00#;(#,#.00#)")</td>
+	</tr>
+}
