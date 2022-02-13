@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using FinanceManager.Application.Common.Models;
 
@@ -9,5 +10,6 @@ namespace FinanceManager.Application.Common.Interfaces
         List<string> GetAllCurrency();
 
         Task<decimal> ConvertSumToByn(string currency, decimal sum);
+        Task<decimal> ConvertSumToByn(string currency, decimal sum, DateTime operationDate);
     }
 }

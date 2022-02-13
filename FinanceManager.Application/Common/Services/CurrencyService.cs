@@ -51,5 +51,28 @@ namespace FinanceManager.Application.Common.Services
 
             return result;
         }
+
+        public async Task<decimal> ConvertSumToByn(string currency, decimal sum, DateTime operationDate)
+        {
+            if (currency == Currency.BYN.ToString())
+            {
+                return sum;
+            }
+
+            var request = new HttpRequestMessage(HttpMethod.Get,
+                $"https://www.nbrb.by/api/exrates/rates/{currency}?parammode=2&ondate={operationDate.ToShortDateString()}&periodicity=0");
+
+            var client = _httpClientFactory.CreateClient();
+
+            var response = await client.SendAsync(request);
+
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            dynamic currencyInfo = JsonConvert.DeserializeObject(responseBody);
+
+            var result = sum * (decimal)currencyInfo.Cur_OfficialRate;
+
+            return result;
+        }
     }
 }
