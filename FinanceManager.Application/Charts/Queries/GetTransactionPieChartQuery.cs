@@ -35,6 +35,7 @@ namespace FinanceManager.Application.Charts.Queries
                     .Include(x => x.Category)
                     .Include(x => x.SubCategory)
                     .Include(x => x.Account)
+                    .Where(x => x.TransactionType == "Cunsumption")
                     .Where(x => x.Date.Year == request.Year)
                     .Where(x => x.Date.Month == request.Month)
                     .ToListAsync();
